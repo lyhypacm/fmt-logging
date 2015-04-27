@@ -14,6 +14,9 @@ namespace fmt_logging {
 extern bool is_log_enabled;
 extern int log_level;
 
+// sets log_level according to its name.
+bool set_log_level(const char* const log_level_name);
+
 void log_internal(int level, const char* file_name,
     const int line_number, const char* format, ...);
 

@@ -13,7 +13,8 @@ use macros `FMT_LOG(log_level, format, parameters)` to log level.
 
 - `fmt_logging::is_log_enabled`: enable logging or not. It's a boolean value.
 - `fmt_logging::log_level`: will show all log\_level higher
-than or equal to it. It's a int value as the mapping below:
+than or equal to it. It's a int value as the mapping below, also, you can use
+`set_log_level` to set it.
   - `DEBUG`: 0
   - `INFO`: 1
   - `WARN`: 2

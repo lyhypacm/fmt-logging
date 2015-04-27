@@ -1,6 +1,7 @@
 #include "fmt-logging.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 
 #define LOG_LEVEL_TYPES 5
@@ -24,6 +25,16 @@ const char* LOG_LEVEL_NOTE[LOG_LEVEL_TYPES] = {
 
 bool fmt_logging::is_log_enabled = false;
 int fmt_logging::log_level = FMT_LOG_LEVEL_INFO;
+
+bool fmt_logging::set_log_level(const char* const log_level_name) {
+  for (int i = 0; i < LOG_LEVEL_TYPES; i++) {
+    if (strcmp(LOG_LEVEL_NOTE[i], log_level_name) == 0) {
+      log_level = i;
+      return true;
+    }
+  }
+  return false;
+}
 
 void fmt_logging::log_internal(int level, const char* file_name,
     const int line_number, const char* format, ...) {
